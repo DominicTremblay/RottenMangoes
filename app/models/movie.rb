@@ -20,6 +20,8 @@ class Movie < ActiveRecord::Base
 
   validate :release_date_is_in_the_future
 
+  mount_uploader :poster_image_url, ImageUploader
+
   def review_average
     reviews.size == 0 ? 0 : reviews.sum(:rating_out_of_ten)/reviews.size
   end
