@@ -1,9 +1,24 @@
 class Admin::UsersController < ApplicationController
 
-  before_action :require_admin
+  before_action :require_admin, except: [:switch_to_admin]
 
   def index
     @users = User.all
+  end
+
+  def switch_to_user
+    session[:admin_id] = current_user.id
+    session[:user_id] = params[:id]
+
+    redirect_to movies_path
+  end
+
+  def switch_to_admin
+    if session[:admin_id]   
+      session[:user_id] = session[:admin_id]
+      session[:admin_id] = nil
+    end
+    redirect_to admin_users_path
   end
 
   def new

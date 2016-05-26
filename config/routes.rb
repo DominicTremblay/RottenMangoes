@@ -12,6 +12,8 @@ RottenMangoes::Application.routes.draw do
 
   namespace :admin do
     resources :users
+    get '/users/:id/impersonate' => 'users#switch_to_user', as: :impersonate
+    get 'return-to-self' => 'users#switch_to_admin', as: :return_to_self    
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

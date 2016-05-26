@@ -12,8 +12,4 @@ class User < ActiveRecord::Base
     admin_user
   end
 
-  def current_user
-    @user = User.find(params[:id])    
-  end
-
 end
