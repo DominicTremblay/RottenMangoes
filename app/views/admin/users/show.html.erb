@@ -1,0 +1,26 @@
+<%= link_to "Back to all users", admin_users_path %><br/>
+
+<h1>User: <%= @user.full_name %></h1>
+
+<table>
+  <tr>
+    <td>First name:</td>
+    <td><%= @user.firstname %></td>
+  </tr>
+  <tr>
+    <td>Last name:</td>
+    <td><%= @user.lastname %></td>
+  </tr>
+  <tr>
+    <td>E-mail:</td>
+    <td><%= @user.email %></td>
+  </tr>
+    <tr>
+    <td>Type of user:</td>
+    <td><%= @user.admin_user ? "admin" : "user" %></td>
+  </tr>
+</table>
+
+
+ 
+
