@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
+  
   def index
-    @movies = Movie.all
+    @movies = Movie.search(params[:search], params[:type], params[:duration])
   end
 
   def show
@@ -16,7 +17,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-    #byebug
     @movie = Movie.new(movie_params)
 
     if @movie.save
